@@ -1,57 +1,31 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-
-@Component({
-  selector: 'app-help-desk',
-  templateUrl: './help-desk.component.html',
-  styleUrls: ['./help-desk.component.scss']
-})
-export class HelpDeskComponent {
-  helpDeskForm = new FormGroup({
-    name: new FormControl(''),
-    prn: new FormControl(''),
-    department: new FormControl(''),
-    email: new FormControl(''),
-    title: new FormControl(''),
-    description: new FormControl('')
-  });
-
-  onSubmit() {
-    console.log(this.helpDeskForm.value);
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background: #f5f5f5; /* Light grey background */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+mat-form-field {
+  width: 100%;
+}
 
-<form [formGroup]="helpDeskForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name">
-  </mat-form-field>
+input, textarea {
+  background: white !important; /* White background for inputs */
+  border-radius: 5px;
+}
 
-  <mat-form-field>
-    <mat-label>PRN No</mat-label>
-    <input matInput formControlName="prn">
-  </mat-form-field>
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
 
-  <mat-form-field>
-    <mat-label>Department</mat-label>
-    <input matInput formControlName="department">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email" type="email">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Title of Enquiry</mat-label>
-    <input matInput formControlName="title">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Description</mat-label>
-    <textarea matInput formControlName="description"></textarea>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit">Submit</button>
-</form>
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
